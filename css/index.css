@@ -1,0 +1,77 @@
+body {
+	background-color:linen;
+	background-image: url('image/workingnote.jpg');
+	background-repeat:no-repeat;
+}
+#text {
+	border-radius: 25px;
+	background: #73AD21;
+	padding: 20px;
+	width: 200px;
+	height: 150px;
+	border: 2px solid black;
+	margin-top:20px;
+}
+#ulkeys{
+    list-style-type: none;
+    padding:10px;
+	background-color:yellow;
+	width: 70px;
+	margin-left:50px;
+	border: 2px solid black;
+}
+#ulkeys2{
+    list-style-type: none;
+    padding:10px;
+    background-color:green;
+    width: 70px;
+    margin-left:50px;
+    border: 2px solid black;
+}
+#ulkeys li:hover{
+    background-color:blue;
+}
+#ulkeys2 li:hover{
+    background-color:red;
+}
+button{
+	background-color:yellow;
+	margin-left:20px;
+}
+h1{
+    background-color:white;
+	color:maroon;
+	margin-left:10px;
+	width:250px;
+	border: 2px solid black;
+}
+h2{
+    background-color:lightblue;
+    margin-left:50px;
+    width:100px;
+}
+.pink{
+    background-color:pink;
+    border: 2px solid grey;
+    padding:10px;
+    width:800px;
+}
+#divhelp{
+    background-color:white;
+    border: 5px solid black;
+    padding: 10px;
+}
+#view{
+    background-color:white;
+    padding: 20px;
+    border: 5px solid black;
+}
+.centered-axis-xy {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.tall{
+    height:50px;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+<body>
+<h1 class="tall">Spaced Repetition</h1>
+<div>
+    <h2 class="tall">All Items</h2>
+    <ul id="ulkeys">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+</div>
+<div>
+    <h2>Review</h2>
+    <ul id="ulkeys2">
+        <li>Note</li>
+        <li>Emergency</li>
+        <li>Reminder</li>
+    </ul>
+</div>
+<div id="divhelp" class="centered-axis-xy" style="display: none">
+    This is the help.</br>
+    To Add a new item and save it into the All Item List = "Ctrl+S" or clicking on "Save" button.</br>
+    When the task in All Item List that pass the review date it will show up in the Review List.</br>
+    To set the review date to tomorrow = click on the "Tomorrow" button.</br>
+    To set the review date to day after Tomorrow = click on the "DayAfTomorrow" button.</br>
+    To add on 1 date to the current review date = click on the "Add1" button.</br>
+    To show the link that are clickable = click on "Link Window" button.</br>
+    To print the content of text = click on "Print" button.</br>
+    To delete the content in the all items list = click on "Delete" button.</br>
+    To show the help window = click on "Help" button.</br>
+    <button id="btnPrintHelp">Print Help</button>
+</div>
+<div class="pink tall">
+    Title:<input id="iptTitle"></input>
+    Previous Review:<input id="iptPreviousReview" readonly></input>
+    Next Review:<input id="iptNextReview"></input>
+</div>
+<div id="view" class="centered-axis-xy" style="display: none">
+</div>
+<textarea id=text name="message" rows="10" cols="30"></textarea>
+<div>
+    <button id="btnSave">Save</button>
+    <button id="btnTomorrow">Tomorrow</button>
+    <button id="btnDayAfTomorrow">DayAfTomorrow</button>
+    <button id="btnAdd1">Add1</button>
+    <button id="btnTest">Test</button>
+    <button id="btnLinkWindow">Link Window</button>
+    <button id="btnPrint">Print</button>
+    <button onclick="deletekey()">Delete</button>
+    <button onclick="helpkey()">Help</button>
+</div>
+<p id="delete">
+<script src="js/index.js"></script>
+</body>
+
+</html>
