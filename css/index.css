@@ -11,6 +11,19 @@ body {
 	height: 150px;
 	border: 2px solid black;
 	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:40px;
+}
+#answer {
+	border-radius: 25px;
+	background: #9400D3;
+	padding: 20px;
+	width: 200px;
+	height: 150px;
+	border: 2px solid lightblue;
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:40px;
 }
 #ulkeys{
     list-style-type: none;
@@ -24,7 +37,7 @@ body {
     list-style-type: none;
     padding:10px;
     background-color:green;
-    width: 70px;
+    width: 200px;
     margin-left:50px;
     border: 2px solid black;
 }
@@ -49,6 +62,7 @@ h2{
     background-color:lightblue;
     margin-left:50px;
     width:100px;
+    border:2px solid grey;
 }
 .pink{
     background-color:pink;

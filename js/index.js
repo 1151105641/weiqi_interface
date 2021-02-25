@@ -4,8 +4,18 @@ $("#iptNextReview").val(mytext);
 });
 
 $( "#btnDayAfTomorrow" ).click(function() {
-var mytext = moment().add(2,'day').format("DD/MM/YYYY");
-$("#iptNextReview").val(mytext);
+var a = moment($("#iptPreviousReview").val(),"DD/MM/YYYY");
+var b = moment($("#iptNextReview").val(),"DD/MM/YYYY");
+var diff=b.diff(a, 'days');
+if(diff>=2)
+{
+    var mytext = moment().add(2,'day').format("DD/MM/YYYY");
+    $("#iptNextReview").val(mytext);
+}
+else
+{
+    $("#iptNextReview").val(mytext);
+}
 });
 
 $( "#btnAdd1" ).click(function() {
@@ -21,8 +31,8 @@ var newText = newDate.format("DD/MM/YYYY");
 $("#iptNextReview").val(newText);
 });
 
-$( "#btnTest" ).click(function() {
-    console.log(keysDue());
+$( "#btnAnswer" ).click(function() {
+    $("#answer").toggle();
 });
 
 $( "#btnLinkWindow" ).click(function() {
@@ -57,7 +67,8 @@ function saveObject(){
     var nextreview = $("#iptNextReview").val();
     // get text
     var mytext = $("#text").val();
-    var object={title:title,previousReview:previousreview, nextReview:nextreview, text:mytext};
+    var myanswer = $("#answer").val();
+    var object={title:title,previousReview:previousreview, nextReview:nextreview, text:mytext, answer:myanswer};
     console.log(object);
     //turning the object to a string
     const string=JSON.stringify(object);
@@ -69,6 +80,7 @@ function readObject(key){
     const string=localStorage.getItem(key);
     const object=JSON.parse(string);
     $("#text").val(object.text);
+    $("#answer").val(object.answer);
     $("#iptTitle").val(object.title);
     $("#iptPreviousReview").val(object.previousReview);
     $("#iptNextReview").val(object.nextReview);
