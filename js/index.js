@@ -3,19 +3,12 @@ var mytext = moment().add(1,'day').format("DD/MM/YYYY");
 $("#iptNextReview").val(mytext);
 });
 
-$( "#btnDayAfTomorrow" ).click(function() {
+$( "#btnDouble" ).click(function() {
 var a = moment($("#iptPreviousReview").val(),"DD/MM/YYYY");
 var b = moment($("#iptNextReview").val(),"DD/MM/YYYY");
 var diff=b.diff(a, 'days');
-if(diff>=2)
-{
-    var mytext = moment().add(2,'day').format("DD/MM/YYYY");
-    $("#iptNextReview").val(mytext);
-}
-else
-{
-    $("#iptNextReview").val(mytext);
-}
+var mytext = moment().add(diff*2,'day').format("DD/MM/YYYY");
+$("#iptNextReview").val(mytext);
 });
 
 $( "#btnAdd1" ).click(function() {
