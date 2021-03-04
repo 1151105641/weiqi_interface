@@ -34,6 +34,11 @@ $( "#btnLinkWindow" ).click(function() {
     $("#view").toggle();
 });
 
+$( "#btnGotoLink" ).click(function() {
+    var mytext = $("#text").val();
+    window.open(mytext,'_blank');
+});
+
 
 $( "#btnSave" ).click(function() {
 saveUpdate();
@@ -90,7 +95,7 @@ function saveUpdate(){
 }
 function updateList(){
     //get the key from all the localStorage
-    const keys=Object.keys(localStorage);
+    const keys=Object.keys(localStorage).sort();
     //putting the keys into the list
     keys.forEach(function(eachKey) {
     		const newItem = $("<li>").text(eachKey);
@@ -99,7 +104,7 @@ function updateList(){
 }
 function updateList2(){
     //get the key from all the localStorage
-    const keys=keysDue();
+    const keys=keysDue().sort();
     //putting the keys into the list2
     keys.forEach(function(eachKey) {
     		const newItem = $("<li>").text(eachKey);
