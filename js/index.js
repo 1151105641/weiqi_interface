@@ -11,8 +11,7 @@ var mytext = moment().add(diff*2,'day').format("DD/MM/YYYY");
 $("#iptNextReview").val(mytext);
 });
 
-$( "#btnAdd1" ).click(function() {
-debugger;
+$( "#btnAdd1Day" ).click(function() {
 var oldText = $("#iptNextReview").val();
 if(oldText===''){
     var oldDate =moment();
@@ -187,3 +186,15 @@ $(document).ready(function() {
 	updateList();
 	updateList2();
 })
+
+function loadFileAsText(){
+  var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+  var fileReader = new FileReader();
+  fileReader.onload = function(fileLoadedEvent){
+      var textFromFileLoaded = fileLoadedEvent.target.result;
+      document.getElementById("text").value = textFromFileLoaded;
+  };
+
+  fileReader.readAsText(fileToLoad, "UTF-8");
+}
