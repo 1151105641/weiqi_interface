@@ -29,7 +29,7 @@ body {
     font-family: "Times New Roman", Times, serif;
     box-shadow: 5px 5px #888888;
 }
-#ulkeys{
+#Decks{
     list-style-type: none;
     padding:10px;
 	background-color:lightyellow;
@@ -40,7 +40,7 @@ body {
     font-family: "Times New Roman", Times, serif;
     box-shadow: 5px 5px #888888;
 }
-#ulkeys2{
+#Decks2{
     list-style-type: none;
     padding:10px;
     background-color:lightsteelblue;
@@ -51,11 +51,15 @@ body {
     font-family: "Times New Roman", Times, serif;
     box-shadow: 5px 5px #888888
 }
-#ulkeys li:hover{
+#Decks li.selected{
+    background-color:yellow;
+    border-style: outset;
+}
+#Decks li:hover{
     background-color:lightblue;
     border-style: outset;
 }
-#ulkeys2 li:hover{
+#Decks2 li:hover{
     background-color:lightcoral;
     border-style: outset;
 }

@@ -1,3 +1,9 @@
+$( "#btnCreate" ).click(function() {
+var Decks =prompt("Please enter a deck name.") ;
+const newItem = $("<li>").text(Decks);
+    		$("#Decks").append(newItem);
+});
+
 $( "#btnTomorrow" ).click(function() {
 var mytext = moment().add(1,'day').format("DD/MM/YYYY");
 $("#iptNextReview").val(mytext);
@@ -38,7 +44,6 @@ $( "#btnGotoLink" ).click(function() {
     window.open(mytext,'_blank');
 });
 
-
 $( "#btnSave" ).click(function() {
 saveUpdate();
 });
@@ -51,13 +56,21 @@ $("#btnPrintHelp").click(() => {
 	print($("#divhelp").text());
 });
 
-$('body').on('click', 'li', function () {
+$('body').on('click', '#Decks2 li', function () {
         const key=$(this).text();
         readObject(key);
-    });
+});
+
+$('body').on('click', 'ul li', function () {
+    $('ul li.selected').removeClass('selected');
+    $(this).closest('li').addClass('selected');
+})
+
 function saveObject(){
-    // get title
-    var title = $("#iptTitle").val();
+    // get decks
+    var Decks = $('ul li.selected').text();
+    // get cards
+    var Cards = $("#iptCards").val();
     // get previous date
     var previousreview = moment().format('DD/MM/YYYY');
     // get next date
@@ -65,49 +78,39 @@ function saveObject(){
     // get text
     var mytext = $("#text").val();
     var myanswer = $("#answer").val();
-    var object={title:title,previousReview:previousreview, nextReview:nextreview, text:mytext, answer:myanswer};
+    var object={decks:Decks,cards:Cards,previousReview:previousreview, nextReview:nextreview, text:mytext, answer:myanswer};
     console.log(object);
     //turning the object to a string
     const string=JSON.stringify(object);
     //save the string
     console.log(string);
-    localStorage.setItem(title,string);
+    localStorage.setItem(Cards,string);
 }
 function readObject(key){
     const string=localStorage.getItem(key);
     const object=JSON.parse(string);
     $("#text").val(object.text);
     $("#answer").val(object.answer);
-    $("#iptTitle").val(object.title);
+    $("#iptCards").val(object.title||object.cards);
     $("#iptPreviousReview").val(object.previousReview);
     $("#iptNextReview").val(object.nextReview);
     return object;
 }
 function saveUpdate(){
-    var title = $("#iptTitle").val();
+    var card = $("#iptCards").val();
     saveObject();//save selection
-    deleteList();
     deleteList2();
-    updateList();
     updateList2();
     //reselect selection
 }
-function updateList(){
-    //get the key from all the localStorage
-    const keys=Object.keys(localStorage).sort();
-    //putting the keys into the list
-    keys.forEach(function(eachKey) {
-    		const newItem = $("<li>").text(eachKey);
-    		$("#ulkeys").append(newItem);
-    })
-}
+
 function updateList2(){
     //get the key from all the localStorage
     const keys=keysDue().sort();
     //putting the keys into the list2
     keys.forEach(function(eachKey) {
     		const newItem = $("<li>").text(eachKey);
-    		$("#ulkeys2").append(newItem);
+    		$("#Decks2").append(newItem);
     })
 }
 function keysDue() {
@@ -122,17 +125,15 @@ function keysDue() {
 	});
 	return keysDue;
 }
-function deleteList(){
-    $('#ulkeys').empty();
-}
+
 function deleteList2(){
-    $('#ulkeys2').empty();
+    $('#Decks2').empty();
 }
 function deletekey(){
     var txt;
     if (confirm("Are you sure to delete it?")) {
         txt = "You pressed delete!";
-        var title = $("#iptTitle").val();
+        var title = $("#iptCards").val();
         localStorage.removeItem(title);
         location.reload();
     }
@@ -181,9 +182,7 @@ function print(sText) {
 
 $("#text").on("keydown", eventKeyDown);
 $(document).ready(function() {
-	deleteList();
 	deleteList2();
-	updateList();
 	updateList2();
 })
 

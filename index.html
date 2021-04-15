@@ -10,12 +10,12 @@
 <div id="container">
 <div id="left">
 <div>
-    <h2>Review Today</h2>
-    <ul id="ulkeys2"</ul>
+    <h2>Review Cards for Today</h2>
+    <ul id="Decks2"</ul>
 </div>
 <div>
-    <h2>All Items</h2>
-    <ul id="ulkeys"></ul>
+    <h2>All Decks</h2>
+    <ul id="Decks"></ul>
 </div>
 </div>
 <div id="divhelp" class="centered-axis-xy" style="display: none">
@@ -36,12 +36,12 @@
 <div id="view" class="centered-axis-xy" style="display: none"></div>
 <div id="right">
     <div class="plum">
-        Title:<input id="iptTitle"></input>
+        Cards:<input id="iptCards"></input>
         Previous Review:<input id="iptPreviousReview" readonly></input>
         Next Review:<input id="iptNextReview"></input>
     </div>
     <textarea id=text name="message" rows="10" cols="30"></textarea> <textarea id=answer rows="10" cols="30"></textarea>
-    <div id="ulkeys">
+    <div id="Decks">
         <td>Select a File to Load:</td>
         <td><input type="file" id="fileToLoad"></td>
         <td><button onclick="loadFileAsText()">Load Selected File</button><td>
@@ -49,6 +49,7 @@
 </div>
 </div>
 <div>
+    <button id="btnCreate">Create</button>
     <button id="btnSave">Save</button>
     <button id="btnTomorrow">Tomorrow</button>
     <button id="btnDouble">Double</button>
