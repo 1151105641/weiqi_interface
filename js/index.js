@@ -1,7 +1,8 @@
 $( "#btnCreate" ).click(function() {
-var Decks =prompt("Please enter a deck name.") ;
-const newItem = $("<li>").text(Decks);
-    		$("#Decks").append(newItem);
+var DeckNM =prompt("Please enter a deck name.") ;
+
+const newItem = $("<li>").text(DeckNM);
+    		    $("#Decks").append(newItem);
 });
 
 $( "#btnTomorrow" ).click(function() {
@@ -45,20 +46,25 @@ $( "#btnGotoLink" ).click(function() {
 });
 
 $( "#btnSave" ).click(function() {
-saveUpdate();
+    saveUpdate();
 });
 
 $("#btnPrint").click(() => {
-	print($("#text").val());
+    print($("#text").val());
 });
 
 $("#btnPrintHelp").click(() => {
-	print($("#divhelp").text());
+    print($("#divhelp").text());
 });
 
 $('body').on('click', '#Decks2 li', function () {
-        const key=$(this).text();
-        readObject(key);
+    const key=$(this).text();
+    readObject(key);
+});
+
+$('body').on('click', '#Decks li', function () {
+    const DeckNM=$(this).text();
+    updateCardList(DeckNM);
 });
 
 $('body').on('click', 'ul li', function () {
@@ -66,11 +72,23 @@ $('body').on('click', 'ul li', function () {
     $(this).closest('li').addClass('selected');
 })
 
+function getCardsinDeck(DeckNM){
+    var keysDeck = [];
+    	Object.keys(localStorage).forEach(function(each){
+    		var object = readObject(each);
+    		var DesireDeck = object.DeckNM;
+    		if (DesireDeck === DeckNM) {
+    			keysDeck.push(each);
+    		}
+    	});
+    	return keysDeck;
+}
+
 function saveObject(){
-    // get decks
-    var Decks = $('ul li.selected').text();
-    // get cards
-    var Cards = $("#iptCards").val();
+    // get deck
+    var deck = $('ul li.selected').text();
+    // get card name
+    var CardNM = $("#iptCardNM").val();
     // get previous date
     var previousreview = moment().format('DD/MM/YYYY');
     // get next date
@@ -78,40 +96,69 @@ function saveObject(){
     // get text
     var mytext = $("#text").val();
     var myanswer = $("#answer").val();
-    var object={decks:Decks,cards:Cards,previousReview:previousreview, nextReview:nextreview, text:mytext, answer:myanswer};
+    var object={DeckNM:deck,cardNM:CardNM,previousReview:previousreview, nextReview:nextreview, text:mytext, answer:myanswer};
     console.log(object);
     //turning the object to a string
     const string=JSON.stringify(object);
     //save the string
     console.log(string);
-    localStorage.setItem(Cards,string);
+    localStorage.setItem(CardNM,string);
 }
 function readObject(key){
     const string=localStorage.getItem(key);
     const object=JSON.parse(string);
     $("#text").val(object.text);
     $("#answer").val(object.answer);
-    $("#iptCards").val(object.title||object.cards);
+    $("#iptCardNM").val(object.title||object.cardNM);
     $("#iptPreviousReview").val(object.previousReview);
     $("#iptNextReview").val(object.nextReview);
     return object;
 }
 function saveUpdate(){
-    var card = $("#iptCards").val();
+    var cardNM = $("#iptCardNM").val();
     saveObject();//save selection
     deleteList2();
     updateList2();
     //reselect selection
 }
 
+function updateCardList(DeckNM){
+    const CardNM = getCardsinDeck(DeckNM);
+    deleteCard();
+    CardNM.forEach(function(each) {
+    		const newItem = $("<li>").text(each);
+    		$("#cards").append(newItem);
+    })
+    $('#divcard').toggle();
+}
+
+function updateList(){
+    const deckNames = getAllDeckNames();
+    deckNames.forEach(function(each) {
+    		const newItem = $("<li>").text(each);
+    		$("#Decks").append(newItem);
+    })
+}
+
 function updateList2(){
-    //get the key from all the localStorage
     const keys=keysDue().sort();
     //putting the keys into the list2
     keys.forEach(function(eachKey) {
     		const newItem = $("<li>").text(eachKey);
     		$("#Decks2").append(newItem);
     })
+}
+
+function getAllDeckNames(){
+    var result =new Set();
+    Object.keys(localStorage).forEach(function(each){
+        var object = readObject(each);
+        var deckName = object.DeckNM;
+        if(deckName){
+            result.add(deckName);
+        }
+    });
+    return Array.from(result);
 }
 function keysDue() {
 	var keysDue = [];
@@ -125,7 +172,12 @@ function keysDue() {
 	});
 	return keysDue;
 }
-
+function deleteCard(){
+    $('#cards').empty();
+}
+function deleteList(){
+    $('#Decks').empty();
+}
 function deleteList2(){
     $('#Decks2').empty();
 }
@@ -133,7 +185,7 @@ function deletekey(){
     var txt;
     if (confirm("Are you sure to delete it?")) {
         txt = "You pressed delete!";
-        var title = $("#iptCards").val();
+        var title = $("#iptCardNM").val();
         localStorage.removeItem(title);
         location.reload();
     }
@@ -184,6 +236,8 @@ $("#text").on("keydown", eventKeyDown);
 $(document).ready(function() {
 	deleteList2();
 	updateList2();
+	deleteList();
+	updateList();
 })
 
 function loadFileAsText(){

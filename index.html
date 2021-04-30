@@ -20,23 +20,27 @@
 </div>
 <div id="divhelp" class="centered-axis-xy" style="display: none">
     This is the help.</br>
-    To Add a new item and save it into the All Item List = "Ctrl+S" or clicking on "Save" button.</br>
+    To Add a new card and save it into the Deck List = "Ctrl+S" or clicking on "Save" button.</br>
     When the task in All Item List that pass the review date it will show up in the Review List.</br>
     To set the review date to tomorrow = click on the "Tomorrow" button.</br>
     To set the review date to double the current difference between the previous review date and next review date = click on the "Double" button.</br>
-    To hide/show the answer = click on the Answer button.</br>
+    To hide/show the particular card answer = click on the Answer button.</br>
     To add on 1 date to the current review date = click on the "Add1Day" button.</br>
     To show the link that are clickable = click on "Link Window" button.</br>
     To open the link in the text in a new tab = click on "Go to Link" button.</br>
     To print the content of text = click on "Print" button.</br>
-    To delete the content in the all items list = click on "Delete" button.</br>
+    To delete the content in the card list = click on "Delete" button.</br>
     To show the help window = click on "Help" button.</br>
     <button id="btnPrintHelp">Print Help</button>
+</div>
+<div id="divcard" class="centered-axis-xy" style="display: none">
+    <h2>Card List</h2>
+    <ul id="cards"></ul>
 </div>
 <div id="view" class="centered-axis-xy" style="display: none"></div>
 <div id="right">
     <div class="plum">
-        Cards:<input id="iptCards"></input>
+        Cards:<input id="iptCardNM"></input>
         Previous Review:<input id="iptPreviousReview" readonly></input>
         Next Review:<input id="iptNextReview"></input>
     </div>

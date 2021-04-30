@@ -107,6 +107,13 @@ input{
     border: 5px solid yellow;
     padding: 10px;
 }
+
+#divcard{
+    background-color:lemonchiffon;
+    border: 5px solid yellow;
+    padding: 10px;
+}
+
 #view{
     background-color:lemonchiffon;
     padding: 20px;
