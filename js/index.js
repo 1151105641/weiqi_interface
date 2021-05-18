@@ -62,7 +62,7 @@ $('body').on('click', '#Decks2 li', function () {
     readObject(key);
 });
 
-$('body').on('click', '#Decks li', function () {
+$('body').on('dblclick', '#Decks li', function () {
     const DeckNM=$(this).text();
     updateCardList(DeckNM);
 });
