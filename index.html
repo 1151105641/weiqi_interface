@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<h1 class="tall">Spaced-Repetition Memorization</h1>
+<h1 class="tall">Spaced-Repetition Memorization</h1><button onclick="helpkey()">Help</button>
 <div id="container">
 <div id="left">
 <div>
@@ -25,8 +25,9 @@
 </div>
 <div id="divhelp" class="centered-axis-xy" style="display: none">
     This is the help.</br>
+    Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently, while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect. The use of spaced repetition has been proven to increase rate of learning.</br></br>
     To Add a new card and save it into the Deck List = "Ctrl+S" or clicking on "Save" button.</br>
-    When the task in All Item List that pass the review date it will show up in the Review List.</br>
+    When the task in Review Card List passed the review date it will show up in the Review Cards List.</br>
     To set the review date to tomorrow = click on the "Tomorrow" button.</br>
     To set the review date to double the current difference between the previous review date and next review date = click on the "Double" button.</br>
     To hide/show the particular card answer = click on the Answer button.</br>
@@ -36,6 +37,7 @@
     To print the content of text = click on "Print" button.</br>
     To delete the content in the card list = click on "Delete" button.</br>
     To show the help window = click on "Help" button.</br>
+    To load file choose file and load selected file using the "Choose File"button and "Load Selected File" button.
     <button id="btnPrintHelp">Print Help</button>
 </div>
 <div id="divcard" class="centered-axis-xy" style="display: none">
@@ -68,7 +70,6 @@
     <button id="btnGotoLink">Go to Link</button>
     <button id="btnPrint">Print</button>
     <button onclick="deletekey()">Delete</button>
-    <button onclick="helpkey()">Help</button>
 </div>
 <div data-wgo="wgo/1927-11-23.sgf" style="width: 700px"></div>
 <script src="js/index.js"></script>
