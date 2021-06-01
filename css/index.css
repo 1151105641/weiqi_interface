@@ -64,6 +64,9 @@ body {
     background-color:lightcoral;
     border-style: outset;
 }
+close{
+
+}
 button{
 	background-color:yellow;
 	margin-left:50px;
@@ -75,6 +78,19 @@ button{
 	border-radius:10px;
 	box-shadow: 5px 5px #888888;
 }
+#x {
+    position: relative;
+    float: right;
+    background: red;
+	color: white;
+    top: -10px;
+    right: -10px;
+    padding:10px;
+}
+
+close{
+}
+
 h1{
 	color:maroon;
 	margin-left:40px;

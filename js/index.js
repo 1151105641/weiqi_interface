@@ -197,6 +197,9 @@ function deletekey(){
 function helpkey(){
     $('#divhelp').toggle();
 }
+function helpclose(){
+     $('#divhelp').toggle();
+}
 function eventKeyDown(event) {
 	if (event.ctrlKey) {
 		if (event.key === "s") {
@@ -240,14 +243,13 @@ $(document).ready(function() {
 	updateList();
 })
 
-function loadFileAsText(){
-  var fileToLoad = document.getElementById("fileToLoad").files[0];
-
-  var fileReader = new FileReader();
-  fileReader.onload = function(fileLoadedEvent){
-      var textFromFileLoaded = fileLoadedEvent.target.result;
-      document.getElementById("text").value = textFromFileLoaded;
-  };
-
-  fileReader.readAsText(fileToLoad, "UTF-8");
+function loadFileAsText() {
+	var fileToLoad = document.getElementById("fileToLoad").files[0];
+	var fileReader = new FileReader();
+	fileReader.onload = function (fileLoadedEvent) {
+		var textFromFileLoaded = fileLoadedEvent.target.result;
+		document.getElementById("text").value = textFromFileLoaded;
+	};
+	var text = fileReader.readAsText(fileToLoad, "UTF-8");
+	$("#text").val(text);
 }
