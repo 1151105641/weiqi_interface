@@ -140,7 +140,7 @@ function updateCardList(DeckNM){
 }
 
 function updateAllList(){
-    const keys=keysDue().sort();
+    const keys=Object.keys(localStorage).sort();
     //putting the keys into the AllList
    keys.forEach(function(eachKey) {
         const newItem = $("<li>").text(eachKey);
