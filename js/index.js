@@ -94,8 +94,6 @@ function saveObject(){
     var deck = $('ul li.selected').text();
     // get card name
     var CardNM = $("#iptCardNM").val();
-    //get All List
-    var AllList = $("#iptCardNM").val();
     // get previous date
     var previousreview = moment().format('DD/MM/YYYY');
     // get next date
@@ -124,6 +122,8 @@ function readObject(key){
 function saveUpdate(){
     var cardNM = $("#iptCardNM").val();
     saveObject();//save selection
+    deleteAllList();
+    updateAllList();
     deleteList2();
     updateList2();
     //reselect selection
@@ -256,12 +256,12 @@ function print(sText) {
 
 $("#text").on("keydown", eventKeyDown);
 $(document).ready(function() {
+    deleteAllList();
+	updateAllList();
 	deleteList2();
 	updateList2();
 	deleteList();
 	updateList();
-	deleteAllList();
-	updateAllList();
 	initializeWgo();
 })
 
