@@ -57,6 +57,11 @@ $("#btnPrintHelp").click(() => {
     print($("#divhelp").text());
 });
 
+$('body').on('click', '#AllList li', function () {
+    const key=$(this).text();
+    readObject(key);
+});
+
 $('body').on('click', '#Decks2 li', function () {
     const key=$(this).text();
     readObject(key);
@@ -89,6 +94,8 @@ function saveObject(){
     var deck = $('ul li.selected').text();
     // get card name
     var CardNM = $("#iptCardNM").val();
+    //get All List
+    var AllList = $("#iptCardNM").val();
     // get previous date
     var previousreview = moment().format('DD/MM/YYYY');
     // get next date
@@ -130,6 +137,15 @@ function updateCardList(DeckNM){
     		$("#cards").append(newItem);
     })
     $('#divcard').toggle();
+}
+
+function updateAllList(){
+    const keys=keysDue().sort();
+    //putting the keys into the AllList
+   keys.forEach(function(eachKey) {
+        const newItem = $("<li>").text(eachKey);
+        $("#AllList").append(newItem);
+   })
 }
 
 function updateList(){
@@ -174,6 +190,9 @@ function keysDue() {
 }
 function deleteCard(){
     $('#cards').empty();
+}
+function deleteAllList(){
+    $('#AllList').empty();
 }
 function deleteList(){
     $('#Decks').empty();
@@ -241,15 +260,33 @@ $(document).ready(function() {
 	updateList2();
 	deleteList();
 	updateList();
+	deleteAllList();
+	updateAllList();
+	initializeWgo();
 })
 
 function loadFileAsText() {
-	var fileToLoad = document.getElementById("fileToLoad").files[0];
-	var fileReader = new FileReader();
-	fileReader.onload = function (fileLoadedEvent) {
-		var textFromFileLoaded = fileLoadedEvent.target.result;
-		document.getElementById("text").value = textFromFileLoaded;
-	};
-	var text = fileReader.readAsText(fileToLoad, "UTF-8");
-	$("#text").val(text);
+   var fileToLoad = document.getElementById("fileToLoad").files[0];
+   var fileReader = new FileReader();
+   fileReader.onload = function (fileLoadedEvent) {
+      var textFromFileLoaded = fileLoadedEvent.target.result;
+      document.getElementById("text").value = textFromFileLoaded;
+   };
+   var text = fileReader.readAsText(fileToLoad, "UTF-8");
+   $("#text").val(text);
 }
+
+let wgoPlayer;
+
+function initializeWgo() {
+   const element = document.getElementById("wgo");
+   wgoPlayer = new WGo.BasicPlayer(element, {
+      sgfFile: "wgo/1927-11-23.sgf",
+   });
+}
+
+$('#btnWgo').click(()=> {
+   wgoPlayer.config.sgf = $("#text").val();
+   delete wgoPlayer.config.sgfFile;
+   wgoPlayer.initGame();
+});

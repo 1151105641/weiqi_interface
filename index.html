@@ -11,16 +11,22 @@
 
 </head>
 <body>
-<h1 class="tall">Spaced-Repetition Memorization</h1><button onclick="helpkey()">Help</button>
-<div id="container">
-<div id="left">
+<h1 class="tall">Spaced-Repetition Memorization</h1>
+<div id="top">
+    <button id="help" onclick="helpkey()">Help</button>
+    <div>
+    <h2>All Decks</h2>
+    <ul id="Decks"></ul>
+    </div>
+</div>
+<div id="container"><div id="left">
 <div>
     <h2>Review Cards for Today</h2>
     <ul id="Decks2"</ul>
 </div>
 <div>
-    <h2>All Decks</h2>
-    <ul id="Decks"></ul>
+    <h2>All List</h2>
+    <ul id="AllList"</ul>
 </div>
 </div>
 <div id="divhelp" class="centered-axis-xy" style="display: none">
@@ -63,7 +69,7 @@
 </div>
 </div>
 <div>
-    <button id="btnCreate">Create</button>
+    <button id="btnCreate">Create Deck</button>
     <button id="btnSave">Save</button>
     <button id="btnTomorrow">Tomorrow</button>
     <button id="btnDouble">Double</button>
@@ -72,9 +78,10 @@
     <button id="btnLinkWindow">Link Window</button>
     <button id="btnGotoLink">Go to Link</button>
     <button id="btnPrint">Print</button>
+    <button id="btnWgo">WGO</button>
     <button onclick="deletekey()">Delete</button>
 </div>
-<div data-wgo="wgo/1927-11-23.sgf" style="width: 700px"></div>
+<div id="wgo" style="width: 700px"></div>
 <script src="js/index.js"></script>
 </body>
 
