@@ -35,18 +35,23 @@
     </close>
     This is the help.</br>
     Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently, while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect. The use of spaced repetition has been proven to increase rate of learning.</br></br>
-    To Add a new card and save it into the Deck List = "Ctrl+S" or clicking on "Save" button.</br>
-    When the task in Review Card List passed the review date it will show up in the Review Cards List.</br>
+    To Create a new deck = Click on "Create New Deck" button.</br>
+    To Add a new card and save it into All List and Deck List = Click on "Save" button.</br>
+    When the task in All List passed the review date it will show up in the Review Cards List.</br>
     To set the review date to tomorrow = click on the "Tomorrow" button.</br>
     To set the review date to double the current difference between the previous review date and next review date = click on the "Double" button.</br>
-    To hide/show the particular card answer = click on the Answer button.</br>
+    To hide/show the particular card answer = click on the "Answer" button.</br>
     To add on 1 date to the current review date = click on the "Add1Day" button.</br>
-    To show the link that are clickable = click on "Link Window" button.</br>
+    To show the link that are clickable = click on "Link Window" button.but h</br>
     To open the link in the text in a new tab = click on "Go to Link" button.</br>
     To print the content of text = click on "Print" button.</br>
     To delete the content in the card list = click on "Delete" button.</br>
+       Reminder:When the cards in a deck is all deleted the deck will be deleted as well.</br>
     To show the help window = click on "Help" button.</br>
-    To load file choose file and load selected file using the "Choose File"button and "Load Selected File" button.</br>
+    To load sgf file choose file and load selected file using the "Choose File"button and "Load Selected File" button.</br>
+    Then click on "WGO" button, and the gameplay will be loaded on the chessboard below.</br>
+    You can double click on the Deck to see what are the cards categorized in the deck.</br>
+    Card can be save into deck by clicking once on a deck in the deck list which card you want to assigned to before save.</br>
     <button id="btnPrintHelp">Print Help</button>
 </div>
 <div id="divcard" class="centered-axis-xy" style="display: none">
@@ -73,13 +78,14 @@
     <button id="btnSave">Save</button>
     <button id="btnTomorrow">Tomorrow</button>
     <button id="btnDouble">Double</button>
-    <button id="btnAdd1">Add1Day</button>
+    <button id="btnAdd1Day">Add1Day</button>
     <button id="btnAnswer">Answer</button>
     <button id="btnLinkWindow">Link Window</button>
     <button id="btnGotoLink">Go to Link</button>
     <button id="btnPrint">Print</button>
     <button id="btnWgo">WGO</button>
     <button onclick="deletekey()">Delete</button>
+    <button id="watch" onclick="watchkey()">Watch Tutorial Video</button>
 </div>
 <div id="wgo" style="width: 700px"></div>
 <script src="js/index.js"></script>
