@@ -285,12 +285,15 @@ function initializeWgo() {
       sgfFile: "wgo/1927-11-23.sgf",
    });
 }
+
 function initializeVideo(){
     tutorial.style.visibility = "visible";
     tutorial.style.opacity = 1;
 }
+
 $('#btnWgo').click(()=> {
    wgoPlayer.config.sgf = $("#text").val();
    delete wgoPlayer.config.sgfFile;
    wgoPlayer.initGame();
 });
+
