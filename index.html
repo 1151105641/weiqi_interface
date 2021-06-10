@@ -87,14 +87,14 @@
     <button id="btnPrint">Print</button>
     <button id="btnWgo">WGO</button>
     <button onclick="deletekey()">Delete</button>
-    <button><i class="fa fa-play"></i>Watch Tutorial Video</button>
+    <button id="tutorial-button"><i class="fa fa-play"></i>Watch Tutorial Video</button>
 </div>
 <div class="tutorial">
     <video src="tutorial.mp4" controls></video>
     <span class="close">&times;</span>
 </div>
 <script>
-   const button = document.querySelector("button");
+   const button = document.querySelector("#tutorial-button");
    const close = document.querySelector(".close");
    const tutorial = document.querySelector(".tutorial");
    const video = document.querySelector("video");
