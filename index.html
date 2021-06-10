@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Spaced Repetition Learning</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -8,7 +11,6 @@
     <script type="text/javascript" src="wgo/wgo.min.js"></script>
     <script type="text/javascript" src="wgo/wgo.player.min.js"></script>
     <link type="text/css" href="wgo/wgo.player.css" rel="stylesheet" />
-
 </head>
 <body>
 <h1 class="tall">Spaced-Repetition Memorization</h1>
@@ -85,10 +87,32 @@
     <button id="btnPrint">Print</button>
     <button id="btnWgo">WGO</button>
     <button onclick="deletekey()">Delete</button>
-    <button id="watch" onclick="watchkey()">Watch Tutorial Video</button>
+    <button><i class="fa fa-play"></i>Watch Tutorial Video</button>
 </div>
+<div class="tutorial">
+    <video src="tutorial.mp4" controls></video>
+    <span class="close">&times;</span>
+</div>
+<script>
+   const button = document.querySelector("button");
+   const close = document.querySelector(".close");
+   const tutorial = document.querySelector(".tutorial");
+   const video = document.querySelector("video");
+
+   button.addEventListener('click',()=>{
+       tutorial.style.visibility = "visible";
+       tutorial.style.opacity = 1;
+   });
+
+   close.addEventListener('click',()=>{
+       tutorial.style.visibility = "hidden";
+       tutorial.style.opacity = 0;
+
+       video.pause();
+       video.currentTime = 0;
+   });
+</script>
 <div id="wgo" style="width: 700px"></div>
 <script src="js/index.js"></script>
 </body>
-
 </html>

@@ -2,7 +2,7 @@ $( "#btnCreate" ).click(function() {
 var DeckNM =prompt("Please enter a deck name.") ;
 
 const newItem = $("<li>").text(DeckNM);
-    		    $("#Decks").append(newItem);
+            $("#Decks").append(newItem);
 });
 
 $( "#btnTomorrow" ).click(function() {
