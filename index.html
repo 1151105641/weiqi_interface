@@ -105,11 +105,18 @@
    });
 
    close.addEventListener('click',()=>{
-       tutorial.style.visibility = "hidden";
-       tutorial.style.opacity = 0;
+       var txt;
+       if (confirm("Are you sure to skip the tutorial?")) {
+           txt = "You pressed yes!";
+           tutorial.style.visibility = "hidden";
+           tutorial.style.opacity = 0;
 
-       video.pause();
-       video.currentTime = 0;
+           video.pause();
+           video.currentTime = 0;
+       }
+       else {
+           txt = "You pressed Cancel!";
+       }
    });
 </script>
 <div id="wgo" style="width: 700px"></div>
